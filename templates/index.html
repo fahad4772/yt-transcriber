@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>VEEDIO PRO – AI Transcript Tool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  <link href="https://unpkg.com/animate.css@4.1.1/animate.min.css" rel="stylesheet" />
+  <style>
+    * { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', sans-serif; background-color: #f2f2f2; overflow-x: hidden; }
+    .navbar { background-color: #001d3d; padding: 15px 30px; }
+    .navbar-brand { font-size: 28px; font-weight: 700; color: #ffc107 !important; }
+    .nav-link { color: white !important; margin-left: 20px; transition: 0.3s; }
+    .nav-link:hover { color: #ffc107 !important; }
+    .hero {
+      background: linear-gradient(120deg, #001d3d, #003566);
+      color: white;
+      padding: 120px 20px 100px;
+      text-align: center;
+      position: relative;
+    }
+    .hero h1 { font-size: 3rem; font-weight: bold; }
+    .form-area { max-width: 700px; margin: 30px auto 0; }
+    .input-group input { padding: 16px; font-size: 18px; }
+    .btn-warning { padding: 16px 30px; font-size: 18px; border: none; }
+    .section-title { font-size: 38px; font-weight: bold; margin-top: 70px; text-align: center; color: #001d3d; }
+    .feature-box, .read-more-card, .faq-item {
+      background: white; border-radius: 12px; padding: 30px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    .feature-box:hover, .read-more-card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.1); }
+    .feature-box i { font-size: 40px; color: #003566; margin-bottom: 15px; }
+    .read-more-card img { width: 100%; border-radius: 8px; margin-bottom: 15px; }
+    .faq-item h6 { cursor: pointer; }
+    footer { background: #001d3d; color: white; text-align: center; padding: 40px 20px; margin-top: 50px; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand" href="#"><i class="fas fa-brain"></i> VEEDIO PRO</a>
+  <div class="ms-auto d-flex">
+    <a class="nav-link" href="#">Home</a>
+    <a class="nav-link" href="#features">Features</a>
+    <a class="nav-link" href="#readmore">Read More</a>
+    <a class="nav-link" href="#faq">FAQ</a>
+  </div>
+</nav>
+
+<section class="hero animate__animated animate__fadeIn">
+  <h1 class="animate__animated animate__zoomIn">🎬 Transcribe YouTube Videos Instantly</h1>
+  <p class="lead mt-3">Paste your YouTube link below and get your transcript in seconds</p>
+  <form id="transcriptForm" class="form-area">
+    <div class="input-group mt-4">
+      <input type="text" id="yt_url" name="yt_url" class="form-control" placeholder="Paste YouTube URL here..." required>
+      <button type="submit" class="btn btn-warning">Get Transcript</button>
+    </div>
+  </form>
+</section>
+
+<div class="container mt-5" id="result"></div>
+
+<section id="features" class="container">
+  <h2 class="section-title">⚙️ Features</h2>
+  <div class="row mt-4 g-4">
+    <div class="col-md-3" data-aos="fade-up"><div class="feature-box text-center"><i class="fas fa-rocket"></i><h5>Instant Transcripts</h5><p>Generate accurate transcripts instantly using AI.</p></div></div>
+    <div class="col-md-3" data-aos="fade-up" data-aos-delay="100"><div class="feature-box text-center"><i class="fas fa-download"></i><h5>Download Options</h5><p>Export your transcript as .txt or .pdf files easily.</p></div></div>
+    <div class="col-md-3" data-aos="fade-up" data-aos-delay="200"><div class="feature-box text-center"><i class="fas fa-language"></i><h5>Multi-language</h5><p>Supports transcription and translation in many languages.</p></div></div>
+    <div class="col-md-3" data-aos="fade-up" data-aos-delay="300"><div class="feature-box text-center"><i class="fas fa-brain"></i><h5>AI-Powered</h5><p>Summarize, quiz, and interact with your transcript using AI.</p></div></div>
+  </div>
+</section>
+
+<section id="readmore" class="container mt-5">
+  <h2 class="section-title">📖 Read More</h2>
+  <div class="row mt-4 g-4">
+    <div class="col-md-4" data-aos="fade-right"><div class="read-more-card"><h5>Why Transcribe?</h5><p>Improve accessibility, SEO, and productivity with video transcripts.</p></div></div>
+    <div class="col-md-4" data-aos="fade-up"><div class="read-more-card"><h5>Who Uses It?</h5><p>Creators, educators, marketers, and professionals all rely on transcript tools.</p></div></div>
+    <div class="col-md-4" data-aos="fade-left"><div class="read-more-card"><h5>What's Next?</h5><p>Upcoming features include TTS, AI search, live notes, and more.</p></div></div>
+  </div>
+</section>
+
+<section id="faq" class="container mt-5">
+  <h2 class="section-title">❓ Frequently Asked Questions</h2>
+  <div class="accordion mt-4" id="faqAccordion">
+    <div class="accordion-item" data-aos="fade-up">
+      <h2 class="accordion-header" id="q1"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1">How does it work?</button></h2>
+      <div id="a1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Paste your YouTube link and let our backend extract the transcript using Deepgram API.</div></div>
+    </div>
+    <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="accordion-header" id="q2"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">Can I download the result?</button></h2>
+      <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Yes, download the transcript as a .txt file instantly.</div></div>
+    </div>
+    <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+      <h2 class="accordion-header" id="q3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3">Is it free to use?</button></h2>
+      <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Basic features are free. Premium AI features may require a subscription later.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 VEEDIO PRO – Built for speed, powered by AI.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init();
+  document.getElementById('transcriptForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const url = document.getElementById('yt_url').value.trim();
+    const formData = new FormData();
+    formData.append("yt_url", url);
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = "<div class='text-center mt-4'><div class='spinner-border text-warning' role='status'><span class='visually-hidden'>Loading...</span></div></div>";
+    const res = await fetch('/transcribe', { method: 'POST', body: formData });
+    const data = await res.json();
+    if (data.error) {
+      resultDiv.innerHTML = `<div class='text-danger mt-4'>${data.error}</div>`;
+      return;
+    }
+    resultDiv.innerHTML = `
+      <div class="row mt-4 g-4">
+        <div class="col-md-6">
+          <iframe src='https://www.youtube.com/embed/${data.video_id}' allowfullscreen width='100%' height='315' style='border-radius: 8px;'></iframe>
+        </div>
+        <div class="col-md-6">
+          <h5>📜 Transcript</h5>
+          <div id="transcriptBox" class="p-3 border rounded" style="max-height: 320px; overflow-y: auto;">${data.transcript}</div>
+          <button class="btn btn-outline-secondary mt-3 me-2" onclick="copyTranscript()">📋 Copy</button>
+          <a class="btn btn-outline-primary mt-3" href="/download/${data.video_id}" target="_blank">⬇ Download TXT</a>
+        </div>
+      </div>
+    `;
+  });
+  function copyTranscript() {
+    const transcriptText = document.getElementById("transcriptBox").innerText;
+    navigator.clipboard.writeText(transcriptText).then(() => {
+      alert("✅ Transcript copied to clipboard!");
+    }).catch(() => {
+      alert("❌ Failed to copy transcript.");
+    });
+  }
+</script>
+
+</body>
+</html>
